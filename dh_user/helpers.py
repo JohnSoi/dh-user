@@ -4,9 +4,9 @@ __author__: str = 'Старков Е.П.'
 
 
 from fastapi import Depends
-
-from dh_auth.exceptions.access_data import NoActiveAccessData
 from dh_auth.helpers import get_token, get_user_id_from_token
+from dh_auth.exceptions.access_data import NoActiveAccessData
+
 from .model import UserModel
 from .repository import UserRepository
 

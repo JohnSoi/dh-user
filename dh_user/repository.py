@@ -6,6 +6,7 @@ __author__: str = 'Старков Е.П.'
 from typing import Type
 
 from dh_base.repositories import BaseRepository
+
 from .model import UserModel
 
 

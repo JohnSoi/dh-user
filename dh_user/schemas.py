@@ -4,14 +4,13 @@
 __author__: str = 'Старков Е.П.'
 
 
-from datetime import date
-from typing import List
 from uuid import UUID
+from typing import List
+from datetime import date
 
 from pydantic import BaseModel
-
 from dh_auth.schemas import AuthData, RoleAuth, AccessDataPublic, SessionPublicData
-from dh_contact.schemas import ContactRegisterData, ContactPublicData
+from dh_contact.schemas import ContactPublicData, ContactRegisterData
 
 
 class UserMainInfo(BaseModel):

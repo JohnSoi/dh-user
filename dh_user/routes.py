@@ -4,12 +4,12 @@ __author__: str = 'Старков Е.П.'
 
 from typing import Any
 
-from fastapi import APIRouter, Depends
-
+from fastapi import Depends, APIRouter
 from dh_base.schemas import SimpleOperationResult
-from .helpers import get_current_user
+
 from .model import UserModel
-from .schemas import RegisterData, DeleteOrBlockUserIn, UserData
+from .helpers import get_current_user
+from .schemas import UserData, RegisterData, DeleteOrBlockUserIn
 from .service import UserService
 
 router: APIRouter = APIRouter(prefix='/user', tags=['User'])

@@ -2,17 +2,16 @@
 
 __author__: str = 'Старков Е.П.'
 
-from datetime import date
 from typing import List
+from datetime import date
 
-from sqlalchemy import String, Date, SmallInteger
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from step_vpn_service.contacts.model import ContactModel
-from step_vpn_service.contacts.consts import ContactType
-from step_vpn_service.contacts.repository import ContactRepository
-
+from sqlalchemy import Date, String, SmallInteger
+from sqlalchemy.orm import Mapped, relationship, mapped_column
 from dh_base.columns import IdColumns, DateEditColumns
 from dh_base.database import Base
+from dh_contact.model import ContactModel
+from dh_contact.consts import ContactType
+from dh_contact.repository import ContactRepository
 
 
 class UserModel(IdColumns, DateEditColumns, Base):

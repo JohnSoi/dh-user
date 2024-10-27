@@ -3,22 +3,23 @@
 __author__: str = 'Старков Е.П.'
 
 
+from uuid import UUID, uuid4
 from typing import Any, NoReturn
-from uuid import uuid4, UUID
 
 from dh_auth.consts import ADMIN_ROLE_KEY
-from dh_auth.exceptions import LoginExist, NotAccessOperation
-from dh_auth.celery_tasks.email_sender import send_confirm_email
-from dh_contact.consts import ContactType
+from dh_base.database import Base
 from dh_contact.model import ContactModel
+from dh_contact.consts import ContactType
+from dh_auth.exceptions import LoginExist, NotAccessOperation
+from dh_auth.repository import AccessDataRepository, ConfirmEmailRepository
+from dh_auth.helpers.auth import get_password_hash
 from dh_contact.repository import ContactRepository
-from .exceptions import UserNotFound
+from dh_auth.celery_tasks.email_sender import send_confirm_email
+
 from .model import UserModel
 from .schemas import RegisterData
+from .exceptions import UserNotFound
 from .repository import UserRepository
-from dh_auth.helpers.auth import get_password_hash
-from dh_auth.repository import AccessDataRepository, ConfirmEmailRepository
-from dh_base.database import Base
 
 
 class UserService:
