@@ -10,6 +10,7 @@ python = "^3.12"
 fastapi = "^0.115.3"
 dh-base = {git = "https://github.com/JohnSoi/dh-base.git"}
 dh-auth = {git = "https://github.com/JohnSoi/dh-auth.git"}
+dh-contact = {git = "https://github.com/JohnSoi/dh-contact.git"}
 
 
 [tool.poetry.group.dev.dependencies]

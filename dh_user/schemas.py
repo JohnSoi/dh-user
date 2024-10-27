@@ -11,8 +11,7 @@ from uuid import UUID
 from pydantic import BaseModel
 
 from dh_auth.schemas import AuthData, RoleAuth, AccessDataPublic, SessionPublicData
-from step_vpn_service.contacts.schemas import ContactRegisterData
-from step_vpn_service.contacts.schemas import ContactPublicData
+from dh_contact.schemas import ContactRegisterData, ContactPublicData
 
 
 class UserMainInfo(BaseModel):

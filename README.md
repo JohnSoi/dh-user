@@ -24,12 +24,12 @@
 
 Для подключения используется команда:
 ```bash
-poetry add git+https://github.com/JohnSoi/dh-auth.git
+poetry add git+https://github.com/JohnSoi/dh-user.git
 ```
 
 В файл ```migrations/env.py``` нужно добавить импорт моделей:
 ```python
-from dh_auth.models import *
+from dh_user.model import *
 ```
 
 В файле ```.env``` должны быть следующие поля:

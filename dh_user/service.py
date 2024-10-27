@@ -9,9 +9,9 @@ from uuid import uuid4, UUID
 from dh_auth.consts import ADMIN_ROLE_KEY
 from dh_auth.exceptions import LoginExist, NotAccessOperation
 from dh_auth.celery_tasks.email_sender import send_confirm_email
-from step_vpn_service.contacts.consts import ContactType
-from step_vpn_service.contacts.model import ContactModel
-from step_vpn_service.contacts.repository import ContactRepository
+from dh_contact.consts import ContactType
+from dh_contact.model import ContactModel
+from dh_contact.repository import ContactRepository
 from .exceptions import UserNotFound
 from .model import UserModel
 from .schemas import RegisterData
