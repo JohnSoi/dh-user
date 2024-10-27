@@ -1,7 +1,7 @@
 # pylint: disable=unnecessary-pass
 """Схемы данных для работы с пользователем"""
 
-__author__: str = 'Старков Е.П.'
+__author__: str = "Старков Е.П."
 
 
 from uuid import UUID
@@ -15,6 +15,7 @@ from dh_contact.schemas import ContactPublicData, ContactRegisterData
 
 class UserMainInfo(BaseModel):
     """Основная информация"""
+
     name: str
     surname: str
     second_name: str
@@ -22,12 +23,14 @@ class UserMainInfo(BaseModel):
 
 class UserExtraInfo(BaseModel):
     """Дополнительная информация"""
+
     date_birthday: date
     gender: int
 
 
 class UserData(UserMainInfo, UserExtraInfo):
     """Публичные данные пользователя"""
+
     id: int
     uuid: UUID
 
@@ -38,9 +41,11 @@ class UserData(UserMainInfo, UserExtraInfo):
 
 class RegisterData(UserMainInfo, UserExtraInfo, ContactRegisterData, AuthData, RoleAuth):
     """Данные для регистрации"""
+
     pass
 
 
 class DeleteOrBlockUserIn(BaseModel):
     """Данные бля блокировки или удаления пользователя"""
+
     id: int

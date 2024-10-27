@@ -1,6 +1,6 @@
 """Репозиторий пользователя"""
 
-__author__: str = 'Старков Е.П.'
+__author__: str = "Старков Е.П."
 
 
 from typing import Type
@@ -12,6 +12,7 @@ from .model import UserModel
 
 class UserRepository(BaseRepository):
     """Репозиторий пользователя"""
+
     @property
     def model(self) -> Type[UserModel]:
         """Модель пользователей"""

@@ -1,6 +1,6 @@
 """Хелперы пользователей"""
 
-__author__: str = 'Старков Е.П.'
+__author__: str = "Старков Е.П."
 
 
 from fastapi import Depends

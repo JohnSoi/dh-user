@@ -1,6 +1,6 @@
 """Модели пользователя"""
 
-__author__: str = 'Старков Е.П.'
+__author__: str = "Старков Е.П."
 
 from typing import List
 from datetime import date
@@ -16,7 +16,8 @@ from dh_contact.repository import ContactRepository
 
 class UserModel(IdColumns, DateEditColumns, Base):
     """Модель пользователя"""
-    __tablename__: str = 'users'
+
+    __tablename__: str = "users"
 
     name: Mapped[str] = mapped_column(String(40), index=True)
     surname: Mapped[str] = mapped_column(String(40), index=True)
@@ -25,17 +26,17 @@ class UserModel(IdColumns, DateEditColumns, Base):
     date_birthday: Mapped[date] = mapped_column(Date)
     gender: Mapped[int] = mapped_column(SmallInteger)
 
-    access_data: Mapped['AccessDataModel'] = relationship(back_populates='user', lazy=False)
-    session: Mapped['SessionModel'] = relationship(back_populates='user', lazy=False)
-    contacts: Mapped[List['ContactModel']] = relationship(back_populates='user', lazy=False)
+    access_data: Mapped["AccessDataModel"] = relationship(back_populates="user", lazy=False)
+    session: Mapped["SessionModel"] = relationship(back_populates="user", lazy=False)
+    contacts: Mapped[List["ContactModel"]] = relationship(back_populates="user", lazy=False)
 
     @property
     def full_name(self) -> str:
         """ФИО пользователя"""
-        result: str = f'{self.surname} {self.name}'
+        result: str = f"{self.surname} {self.name}"
 
         if self.second_name:
-            result += f' {self.second_name}'
+            result += f" {self.second_name}"
 
         return result
 

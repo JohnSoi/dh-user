@@ -1,6 +1,6 @@
 """Работа с пользователями"""
 
-__author__: str = 'Старков Е.П.'
+__author__: str = "Старков Е.П."
 
 
 from uuid import UUID, uuid4
@@ -24,6 +24,7 @@ from .repository import UserRepository
 
 class UserService:
     """Сервис для работы с пользователями"""
+
     @classmethod
     async def register_user(cls, payload: RegisterData) -> dict[str, Any]:
         """
@@ -46,11 +47,9 @@ class UserService:
     @classmethod
     async def block_user(cls, user_id: int, user: UserModel) -> None:
         """Блокировка пользователя"""
-        access_data: UserModel = await AccessDataRepository().get_data_with_permission(
-            user_id, user
-        )
+        access_data: UserModel = await AccessDataRepository().get_data_with_permission(user_id, user)
 
-        await AccessDataRepository().update(access_data.id, {'is_active': False})
+        await AccessDataRepository().update(access_data.id, {"is_active": False})
 
     @classmethod
     async def delete_user(cls, user_id: int, user: UserModel) -> None:
@@ -76,12 +75,8 @@ class UserService:
         @param contact_id: идентификатор контакта
         """
         token: UUID = uuid4()
-        await ConfirmEmailRepository().create({
-            'user_id': user_id,
-            'contact_id': contact_id,
-            'token': token
-        })
-        send_confirm_email.delay(f'/auth/confirm_email/{token}', email)
+        await ConfirmEmailRepository().create({"user_id": user_id, "contact_id": contact_id, "token": token})
+        send_confirm_email.delay(f"/auth/confirm_email/{token}", email)
 
     @classmethod
     async def _check_contacts(cls, email: str, phone: str | None) -> NoReturn:
@@ -123,26 +118,32 @@ class UserService:
         @return: идентификатор добавленной почты
         """
         contact_repository: ContactRepository = ContactRepository()
-        await AccessDataRepository().create({
-            'login': payload.login,
-            'password': get_password_hash(payload.password),
-            'user_id': user_id,
-            'role_id': payload.role_id
-        })
+        await AccessDataRepository().create(
+            {
+                "login": payload.login,
+                "password": get_password_hash(payload.password),
+                "user_id": user_id,
+                "role_id": payload.role_id,
+            }
+        )
 
-        contact_data: ContactModel = await contact_repository.create({
-            'value': payload.email,
-            'type': ContactType.EMAIL,
-            'user_id': user_id,
-            'is_main': True
-        })
+        contact_data: ContactModel = await contact_repository.create(
+            {
+                "value": payload.email,
+                "type": ContactType.EMAIL,
+                "user_id": user_id,
+                "is_main": True,
+            }
+        )
 
         if payload.phone:
-            await contact_repository.create({
-                'value': payload.phone,
-                'type': ContactType.PHONE,
-                'user_id': user_id,
-                'is_main': True
-            })
+            await contact_repository.create(
+                {
+                    "value": payload.phone,
+                    "type": ContactType.PHONE,
+                    "user_id": user_id,
+                    "is_main": True,
+                }
+            )
 
         return contact_data.id
