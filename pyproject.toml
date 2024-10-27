@@ -16,6 +16,7 @@ dh-contact = {git = "https://github.com/JohnSoi/dh-contact.git"}
 [tool.poetry.group.dev.dependencies]
 setuptools = "^75.2.0"
 black = "^24.10.0"
+pyright = "^1.1.386"
 
 [tool.isort]
 profile="black"
