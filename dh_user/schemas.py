@@ -33,9 +33,6 @@ class UserInfo(UserMainInfo, UserExtraInfo):
     id: int
     uuid: UUID
 
-    email_value: str
-    phone_value: str
-
 
 class UserData(UserInfo):
     """Публичные данные пользователя"""
