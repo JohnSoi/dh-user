@@ -48,3 +48,12 @@ class UserModel(IdColumns, DateEditColumns, Base):
         )
 
         return contact_data.value
+
+    @property
+    async def phone_value(self) -> str:
+        """Основной телефон"""
+        contact_data: ContactModel = await ContactRepository().find_one_or_none(
+            user_id=self.id, type=ContactType.PHONE, is_main=True
+        )
+
+        return contact_data.value
