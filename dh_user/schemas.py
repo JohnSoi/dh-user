@@ -28,11 +28,13 @@ class UserExtraInfo(BaseModel):
     gender: int
 
 
-class UserData(UserMainInfo, UserExtraInfo):
-    """Публичные данные пользователя"""
-
+class UserInfo(UserMainInfo, UserExtraInfo):
     id: int
     uuid: UUID
+
+
+class UserData(UserInfo):
+    """Публичные данные пользователя"""
 
     access_data: AccessDataPublic
     session: SessionPublicData
