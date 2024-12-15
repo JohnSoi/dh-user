@@ -47,7 +47,7 @@ class UserModel(IdColumns, DateEditColumns, Base):
             user_id=self.id, type=ContactType.EMAIL, is_main=True
         )
 
-        return contact_data.value
+        return str(contact_data.value)
 
     @property
     async def phone_value(self) -> str:
@@ -56,4 +56,4 @@ class UserModel(IdColumns, DateEditColumns, Base):
             user_id=self.id, type=ContactType.PHONE, is_main=True
         )
 
-        return contact_data.value
+        return str(contact_data.value)
