@@ -19,6 +19,7 @@ class UserMainInfo(BaseModel):
     name: str
     surname: str
     second_name: str
+    full_name: str
 
 
 class UserExtraInfo(BaseModel):
