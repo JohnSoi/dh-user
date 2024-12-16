@@ -26,7 +26,7 @@ class UserRepository(BaseRepository):
         return "surname"
 
     @staticmethod
-    def _before_list(query: Select, filters: dict[str, Any]) -> Select:
+    async def _before_list(query: Select, filters: dict[str, Any]) -> Select:
         if not filters:
             return query
 
