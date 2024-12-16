@@ -21,4 +21,4 @@ class UserRepository(BaseRepository):
     @property
     def ordering_field_name(self) -> str:
         """Поле сортировки"""
-        return UserModel.__table__.c.name
+        return "surname"
