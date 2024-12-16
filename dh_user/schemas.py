@@ -19,7 +19,6 @@ class UserMainInfo(BaseModel):
     name: str
     surname: str
     second_name: str
-    full_name: str
 
 
 class UserExtraInfo(BaseModel):
@@ -32,6 +31,7 @@ class UserExtraInfo(BaseModel):
 class UserInfo(UserMainInfo, UserExtraInfo):
     id: int
     uuid: UUID
+    full_name: str
 
 
 class UserData(UserInfo):
