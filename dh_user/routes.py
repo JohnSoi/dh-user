@@ -39,7 +39,7 @@ async def mark_for_delete(payload: DeleteOrBlockUserIn, user: UserModel = Depend
     return {"success": True}
 
 
-@router.post("/me", description="Данные текущего пользователя", response_model=UserData)
+@router.post("/info", description="Данные текущего пользователя", response_model=UserData)
 def get_me(user: UserModel = Depends(get_current_user)):
     """Данные о текущем пользователе"""
     return user
