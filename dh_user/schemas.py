@@ -39,7 +39,6 @@ class UserData(UserInfo):
 
     access_data: AccessDataPublic
     session: SessionPublicData
-    contacts: List[ContactPublicData]
 
 
 class RegisterData(UserMainInfo, UserExtraInfo, ContactRegisterData, AuthData, RoleAuth):
